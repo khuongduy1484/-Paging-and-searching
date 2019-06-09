@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employees</title>
+</head>
+<body>
+<h1>Edit Employees</h1>
+<form th:action="@{/edit-employees}" method="post" th:object="${employees}">
+    <table border="1">
+        <input type="hidden" th:field="*{id}">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Year Old</td>
+            <td><input type="text" th:field="*{yearold}"></td>
+        </tr>
+        <tr>
+            <td>EMAIL</td>
+            <td><input type="text" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+<!--        <select name="province">-->
+<!--            <option th:each="p : ${provinces}"-->
+<!--                    th:value="${p.id}"-->
+<!--                    th:text="${p.name}"-->
+<!--                    th:selected="(${p.id} == *{province.id})"></option>-->
+<!--        </select>-->
+        <tr>
+            <select name="office" >
+                <option th:each="p:${office}" th:value="${p.id}" th:text="${p.name}"
+                        th:selected="(${p.id}==*{office.id})"></option>
+            </select>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Edit Employees">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

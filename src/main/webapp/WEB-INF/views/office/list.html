@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Office List</title>
+</head>
+<body>
+<h1> Offices List</h1>
+<a href="/create/offices">Create Offices</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PHONE NUMBER</th>
+        <th>Address</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    <tr th:each="p:${office}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.phoneNumber}"></td>
+        <td th:text="${p.address}"></td>
+        <td><a th:href="@{/edit-office/__${p.id}__}">Edit</a></td>
+        <td><a th:href="@{/delete-office/__${p.id}__}">Delete</a></td>
+    </tr>
+
+</table>
+</body>
+</html>

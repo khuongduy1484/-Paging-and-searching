@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Office</title>
+</head>
+<body>
+<h1>Create Office</h1>
+<a href="/office">Back Offices List</a>
+<form th:action="@{/create-office}" method="post" th:object="${office}">
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text"th:field="*{name}">
+            </td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>
+                <input type="text" th:field="*{phoneNumber}">
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>
+                <input type="text" th:field="*{address}">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create Office"></td>
+
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

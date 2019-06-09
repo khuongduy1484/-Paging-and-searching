@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employees</title>
+</head>
+<body>
+<h1>Create Employees</h1>
+<a href="/employees">Back Employees List</a>
+<br>
+<br>
+<form th:action="@{/create-employees}" method="post" th:object="${employees}">
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Year Old</td>
+            <td><input type="text" th:field="*{yearold}"></td>
+        </tr>
+        <tr>
+            <td>EMAIL</td>
+            <td><input type="text" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td>Office</td>
+            <td><select th:field="*{office}">
+                <option th:each="p:${office}" th:value="${p.id}" th:text="${p.name}"></option>
+            </select>
+            </td>
+        </tr>
+     <tr>
+         <td><input type="submit" value="Create Employees"></td>
+     </tr>
+
+    </table>
+</form>
+</body>
+</html>
